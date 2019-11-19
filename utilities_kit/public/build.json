@@ -1,0 +1,5 @@
+{
+	"js/dcl.min.js": [
+		"public/js/hide_help.js"
+	]
+}

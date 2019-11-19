@@ -17,6 +17,7 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/utilities_kit/css/utilities_kit.css"
 # app_include_js = "/assets/utilities_kit/js/utilities_kit.js"
+app_include_js = "/assets/js/utilities_kit.min.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/utilities_kit/css/utilities_kit.css"
@@ -79,13 +80,17 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+    # "*": {
+    # 	"on_update": "method",
+    # 	"on_cancel": "method",
+    # 	"on_trash": "method"
+    # }
+    "Communication":
+        {
+            "after_insert": "utilities_kit.utilities_kit.notif.get_comments"
+        }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -119,4 +124,3 @@ app_license = "MIT"
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "utilities_kit.event.get_events"
 # }
-
