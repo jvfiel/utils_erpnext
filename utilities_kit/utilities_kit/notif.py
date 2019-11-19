@@ -2,7 +2,6 @@ import frappe
 from datetime import timedelta
 
 
-#dcl.dcl.notif.get_reminders
 @frappe.whitelist()
 def get_reminders(owner):
     msg = "Please be reminded of the following: "
@@ -18,7 +17,6 @@ def get_reminders(owner):
     else:
         return None
 
-#dcl.dcl.notif.get_comments
 @frappe.whitelist()
 def get_comments(doc,method):
     # comms = frappe.db.sql("""SELECT * FROM `tabCommunication` WHERE communication_type='Comment' and comment_type='Comment' ORDER BY creation DESC LIMIT 2""",as_dict=True)
