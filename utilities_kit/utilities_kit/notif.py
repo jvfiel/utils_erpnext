@@ -5,7 +5,7 @@ from datetime import timedelta
 @frappe.whitelist()
 def get_reminders(owner):
     msg = "Please be reminded of the following: "
-    reminders = frappe.db.sql("""SELECT DISTINCT document_type, document_link FROM `tabDCL Reminders` WHERE owner=%s AND remind_in <= %s""",(owner,str(frappe.utils.get_datetime())))
+    reminders = frappe.db.sql("""SELECT DISTINCT document_type, document_link FROM `tabReminders` WHERE owner=%s AND remind_in <= %s""",(owner,str(frappe.utils.get_datetime())))
 
     if reminders:
         for rem in reminders:
@@ -73,7 +73,7 @@ def get_comments(doc,method):
 
         print dict
 
-        remind = frappe.get_doc({"doctype":"DCL Reminders",
+        remind = frappe.get_doc({"doctype":"Reminders",
                                  "email":"",
                                  "owner":doc.owner,
                                  "document_link":doc.reference_name,
